@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+</head>
+
+<body>
+    <h1>Weather Data</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Description</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($weatherData as $data)
+            <tr>
+                <td>{{ $data->city }}</td>
+                <td>{{ $data->description }}</td>
+                <td>{{ $data->temperature }}</td>
+                <td>{{ $data->humidity }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    {{ $weatherData->links() }} 
+
+</body>
+
+</html>
