@@ -46,3 +46,9 @@ http://localhost:8000/admin/login
 ``
 http://127.0.0.1:8000/weather
 ``
+
+
+## Добавил файл для тестов 
+```
+php /www/Lar-Project/tests/Feature/WeatherServiceTest.php 
+```

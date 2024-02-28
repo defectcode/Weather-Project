@@ -14,7 +14,7 @@ class WeatherService
         $response = Http::get('http://api.openweathermap.org/data/3.0/onecall', [
             'lat' => '33.44',
             'lon' => '-94.04',
-            'appid' => config('services.OPENWEATHERMAP_API_KEY'),
+            'appid' => config('services.openweathermap.api_key'),
         ]);
 
         if ($response->successful()) {
@@ -27,13 +27,8 @@ class WeatherService
                 'humidity' => $weatherData['current']['humidity'],
             ]);
         } else {
+            dd($response->body());
             Log::error('API request to OpenWeatherMap failed: ' . $response->status() . ' - ' . $response->body());
         }
-    }
-
-    public function getAllWeatherData()
-    {
-        $weatherData = WeatherData::paginate(10);
-        return $weatherData;
     }
 }
